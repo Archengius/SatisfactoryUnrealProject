@@ -8,7 +8,10 @@ public class FactoryGameTarget : TargetRules
 	public FactoryGameTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
+		//default link type for game is static, but we need modular
+		//to get attachable module dll for mod loading
+		LinkType = TargetLinkType.Modular;
 
-		ExtraModuleNames.AddRange( new string[] { "FactoryGame" } );
+		ExtraModuleNames.AddRange( new string[] { "FactoryGame", "ExampleMod" } );
 	}
 }
